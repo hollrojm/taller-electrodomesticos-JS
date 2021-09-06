@@ -1,11 +1,13 @@
+
 export default class Appliance{
     constructor(optOrigin, consumption){
         this.consumption = consumption;
         this.optOrigin = optOrigin;
-        this.price = 0;
+        this.price = this.calcBasePrice();
     }
+
     getOriginValue(){
-        let result = (this.optOrigin === `Nacional`) ? 250000 : 350000;
+        let result = (this.optOrigin === 'Nacional') ? 250000 : 350000;
         return result;
     }
 
@@ -16,20 +18,19 @@ export default class Appliance{
             case "B":
                 return  350000;
             case "C":
-                return 250000;
+                return  250000;
             default:
                 return 0;         
         }
+        
     
     }
      calcBasePrice(){
-        this.getConsumptionValue() + this.getOriginValue();
+        let basePrice = this.getConsumptionValue() + this.getOriginValue();
+        return basePrice;
     
-        
     }
 
-    get calcTotalPrice(){
-        this.price;
-    }
+    
 
 }

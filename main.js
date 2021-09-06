@@ -1,10 +1,9 @@
-import  Appliance from "./appliances";
+import  Appliance from "./appliances.js";
 
+import Refrigerator from "./Refrigerator.js";
 
-import { Refrigerator } from "./Refrigerator";
-
-let appliance = new Appliance(`Internacional`, "B");
-console.log(appliance);
+let refrigerators = new Appliance('Internacional', 'B');
+console.log(refrigerators);
 
 
 
