@@ -23,8 +23,9 @@ export default class Appliance{
                 return 0;         
         }
         
-    
+
     }
+
      calcBasePrice(){
         let basePrice = this.getConsumptionValue() + this.getOriginValue();
         return basePrice;

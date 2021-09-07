@@ -5,29 +5,33 @@ export default class Refrigerator extends Appliance{
     constructor(optOrigin, consumption, capacity){
 
         super(optOrigin, consumption)
-        this.capacityValue = capacity;
-        this.calcBasePrice();
+        this.capacityValue = this.calculateForCapacity();
+        this.capacity= capacity;
+        this.price = this.calculateTotalPrice();
 
     }
 
-    get calcForCapacity(){
-
-
+    calculateForCapacity(){
+        
         if (this.capacity > 120){
-            this.capacity=(((this.capacity - 120)*5) / 100);
+            this.capacity=(((this.capacity - 120)*5/10) / 100);
+            
         }else {
             this.capacity = 0;
         }
+        return this.capacity;
+        
     }
-    calcCapacity(){
-        this.calcForCapacity();
+    
+    calculateCapacity(){
+        this.calculateForCapacity();
         this.capacityValue = this.price * this.capacity;
         return this.capacityValue;
     }
     
-    calcBasePrice(){
-        super.calcBasePrice();
-        return this.price + this.calcCapacity();
+     calculateTotalPrice(){
+        
+        return super.calcBasePrice() + this.calculateCapacity();
     }
 
 }
