@@ -6,27 +6,24 @@ export default class Television extends Appliance{
 
         super(optOrigin, consumption)
         this.withTdt = withTdt;
-        this.inches = inches
-        this.priceBasicTv();
+        this.inches = inches;
+        this.priceTv = this.priceTotalTv();
         
     }
      calculateInches(){
-        let inches = 0;
-        if (inches>40){
-            return super.price*0.3;
-        }
+        let result = (this.inches > 40) ? super.calcBasePrice()*0.3:0;
+        return result;
     }
      calculateTdt(){
-        let withTdt = 0;
-        if(withTdt){
-            withTdt = 2500;
-            return withTdt;
+        let tdtResult = (this.withTdt)?250000:0;
+        return tdtResult;
         }
+
+           
+    
+    priceTotalTv(){
+        return  super.calcBasePrice() + this.calculateTdt()  + this.calculateInches();
         
-    }
-    priceBasicTv(){
-        let priceTotal = super.calcBasePrice()+this.calculateTdt()+this.calculateInches();
-        return priceTotal;
     }
     
 

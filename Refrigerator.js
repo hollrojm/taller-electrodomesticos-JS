@@ -14,8 +14,7 @@ export default class Refrigerator extends Appliance{
     calculateForCapacity(){
         
         if (this.capacity > 120){
-            this.capacity=(((this.capacity - 120)*5/10) / 100);
-            
+            this.capacity=(((this.capacity - 120)*0.5) / 100);
         }else {
             this.capacity = 0;
         }
